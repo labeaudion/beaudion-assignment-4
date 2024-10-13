@@ -55,8 +55,8 @@ function displayChart(data) {
             datasets: [{
                 label: 'Cosine Similarity',
                 data: data.similarities,
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 0, 130, 0.2)',
+                borderColor: 'rgba(75, 0, 130, 1)',
                 borderWidth: 1
             }]
         },
@@ -64,6 +64,7 @@ function displayChart(data) {
             scales: {
                 y: {
                     beginAtZero: true,
+                    max: 1.0,
                     title: {
                         display: true,
                         text: 'Similarity Score'
