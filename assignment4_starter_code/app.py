@@ -19,7 +19,7 @@ newsgroups = fetch_20newsgroups(subset='all')
 documents = newsgroups.data
 
 # getting NLTK stopwords
-stop_words = set(stopwords.words('english'))
+stop_words = list(stopwords.words('english'))
 
 # initializing vectorizer
 vectorizer = TfidfVectorizer(stop_words=stop_words)
@@ -72,6 +72,7 @@ def index():
 def search():
     query = request.form['query']
     documents, similarities, indices = search_engine(query)
+    indices = indices.tolist()
     return jsonify({'documents': documents, 'similarities': similarities, 'indices': indices}) 
 
 if __name__ == '__main__':
